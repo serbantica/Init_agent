@@ -141,4 +141,12 @@ Align memory, pipelines, and deployment targets
 > Start with clarity, build with precision. This is the repeatable recipe for every GenAI initiative.
 
 
+AIMate, take the below structured answer to move on to the infra setup.
+
+## 🎯 Problem Statement:
+## 👥 Target Users:
+## 🔁 Interaction Type:
+## 🧠 Agent Roles:
+## 🔒 Constraints:
+
 
