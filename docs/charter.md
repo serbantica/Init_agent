@@ -133,7 +133,6 @@ Example:
 
 
 
-
 ---
 
 📄 Output: Populate docs/charter.md with Your Answers
@@ -152,9 +151,13 @@ Align memory, pipelines, and deployment targets
 
 AIMate, take the below structured answer to move on to the infra setup.
 
-## 🎯 Problem Statement: Enterprise Risk Management for Each Project Stage - Projects often fail or underperform due to overlooked or inconsistently assessed risks across different stages—from initiation to closure. Manual risk reviews are siloed, time-consuming, and lack cross-domain insight. Enterprises need an automated, multi-perspective risk management system that dynamically adapts to each project phase and synthesizes legal, technical, financial, and operational risks into actionable, auditable insights.
+## 🎯 Problem Statement: 
 
-## 👥 Target Users: The system serves three primary user groups, each with a distinct perspective on project risk:
+Enterprise Risk Management for Each Project Stage - Projects often fail or underperform due to overlooked or inconsistently assessed risks across different stages—from initiation to closure. Manual risk reviews are siloed, time-consuming, and lack cross-domain insight. Enterprises need an automated, multi-perspective risk management system that dynamically adapts to each project phase and synthesizes legal, technical, financial, and operational risks into actionable, auditable insights.
+
+## 👥 Target Users: 
+
+The system serves three primary user groups, each with a distinct perspective on project risk:
 
 1. Risk Officers & Compliance Analysts
 Ensure project execution aligns with internal policies, regulatory frameworks, and audit readiness. They require traceable, domain-specific risk evidence across project phases.
@@ -165,7 +168,9 @@ Need synthesized dashboards showing aggregated risk exposure across multiple pro
 3. Technical Delivery Leads
 Use real-time risk insights to identify underperforming or fragile technical components (e.g., unstable APIs, delayed environments, failing integrations) and prioritize corrective action.
 
-## 🔁 Interaction Type: Users primarily interact with the system via a web-based dashboard that surfaces real-time and milestone-based risk summaries, visual indicators, and cross-project comparisons.
+## 🔁 Interaction Type: 
+
+Users primarily interact with the system via a web-based dashboard that surfaces real-time and milestone-based risk summaries, visual indicators, and cross-project comparisons.
 
 For deeper exploration or integration, the system exposes:
 
@@ -173,7 +178,9 @@ A conversational interface (chatbot) for querying risks in natural language (e.g
 
 A REST API for tools like Jira or ServiceNow to fetch structured risk summaries, project metadata, or agent evidence.
 
-## 🧠 Agent Roles: The system is powered by a modular team of GenAI agents, each specialized in a domain of risk. These agents analyze project inputs (documents, metrics, timelines, budgets) and output clear, auditable risk findings. An orchestrator manages flow and ensures timely execution across milestones.
+## 🧠 Agent Roles: 
+
+The system is powered by a modular team of GenAI agents, each specialized in a domain of risk. These agents analyze project inputs (documents, metrics, timelines, budgets) and output clear, auditable risk findings. An orchestrator manages flow and ensures timely execution across milestones.
 
 🧭 OrchestratorAgent
 
