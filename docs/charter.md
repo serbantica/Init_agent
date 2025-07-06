@@ -143,10 +143,119 @@ Align memory, pipelines, and deployment targets
 
 AIMate, take the below structured answer to move on to the infra setup.
 
-## 🎯 Problem Statement:
-## 👥 Target Users:
-## 🔁 Interaction Type:
-## 🧠 Agent Roles:
-## 🔒 Constraints:
+## 🎯 Problem Statement: Enterprise Risk Management for Each Project Stage - Projects often fail or underperform due to overlooked or inconsistently assessed risks across different stages—from initiation to closure. Manual risk reviews are siloed, time-consuming, and lack cross-domain insight. Enterprises need an automated, multi-perspective risk management system that dynamically adapts to each project phase and synthesizes legal, technical, financial, and operational risks into actionable, auditable insights.
+
+## 👥 Target Users: The system serves three primary user groups, each with a distinct perspective on project risk:
+
+1. Risk Officers & Compliance Analysts
+Ensure project execution aligns with internal policies, regulatory frameworks, and audit readiness. They require traceable, domain-specific risk evidence across project phases.
+
+2. Program Managers & Portfolio Owners
+Need synthesized dashboards showing aggregated risk exposure across multiple projects, enabling proactive decision-making and strategic intervention.
+
+3. Technical Delivery Leads
+Use real-time risk insights to identify underperforming or fragile technical components (e.g., unstable APIs, delayed environments, failing integrations) and prioritize corrective action.
+
+## 🔁 Interaction Type: Users primarily interact with the system via a web-based dashboard that surfaces real-time and milestone-based risk summaries, visual indicators, and cross-project comparisons.
+
+For deeper exploration or integration, the system exposes:
+
+A conversational interface (chatbot) for querying risks in natural language (e.g., "What are the highest technical risks in Project A this month?")
+
+A REST API for tools like Jira or ServiceNow to fetch structured risk summaries, project metadata, or agent evidence.
+
+## 🧠 Agent Roles: The system is powered by a modular team of GenAI agents, each specialized in a domain of risk. These agents analyze project inputs (documents, metrics, timelines, budgets) and output clear, auditable risk findings. An orchestrator manages flow and ensures timely execution across milestones.
+
+🧭 OrchestratorAgent
+
+Coordinates agent execution based on project phase or user query
+
+Manages chat/API vs batch mode
+
+Handles fallback, retries, and logging
+
+
+---
+
+🔍 ComplianceAgent
+
+Analyzes contracts, legal docs, and internal policies
+
+Flags regulatory gaps, noncompliance, or risk exposure
+
+Tracks evolving standards (e.g., GDPR, ISO 27001)
+
+
+---
+
+🧠 TechRiskAgent
+
+Monitors architectural integrity, CI/CD failures, unstable APIs, integration delays
+
+Interfaces with infra metrics, logs, or deployment tools
+
+Outputs readiness and fragility indicators
+
+
+---
+
+💸 FinancialRiskAgent
+
+Tracks budget burn-downs, milestone funding, forecast vs actual
+
+Parses financial logs, Excel sheets, or API endpoints
+
+Alerts on overspend, untracked costs, or vendor delays
+
+
+---
+
+🕰️ ScheduleRiskAgent
+
+Detects scope creep, missed deliverables, and cascading delays
+
+Compares planned vs actual timelines (e.g., from Jira or spreadsheets)
+
+Outputs risk level per milestone
+
+
+---
+
+🧠 SynthesizerAgent
+
+Compiles outputs from all agents into a coherent summary
+
+Formats for dashboard, report, or chat response
+
+Can adjust tone for audience (executive, ops, tech)
+
+
+## 🔒 Constraints & Guardrails
+
+> The system must operate within strict ethical, legal, and cost boundaries to ensure responsible AI deployment at scale. Constraints apply to data handling, model behavior, and system control.
+
+### Security & Data Privacy
+- All project data (documents, metrics, logs) must remain within the enterprise’s Azure environment.
+- No PII or sensitive content may be sent to external APIs or processed outside the EU.
+- All secrets, API keys, and tokens must be stored in **Azure Key Vault** — never hardcoded or in plaintext.
+
+### Cost Controls
+- Total monthly operational cost must remain under **€500**, covering compute, storage, and API usage.
+- Each agent must track and log its **individual token/API consumption** for audit and optimization.
+- Optional: fallback to open-weight models when API limits are reached.
+
+### LLM Behavior Guardrails
+- Agents must return a **confidence score** alongside every generated output.
+- Hallucination must be minimized — all claims should be grounded in input data or referenceable logic.
+- Generative or hypothetical text is prohibited in final reports unless explicitly requested.
+
+### Auditability & Traceability
+- Every agent run must log: input context, agent version, LLM model/version used, timestamp, and output.
+- All interactions (chat, API, batch) must be traceable for later analysis or compliance audits.
+
+### Agent Control (Activation Logic)
+- The system must support **enabling/disabling individual agents** dynamically at runtime.
+- This applies both to scheduled executions and real-time chat/API interactions.
+- Example use: disabling `FinancialRiskAgent` for low-budget internal projects, or activating `ComplianceAgent` only on contract milestones.
 
 
