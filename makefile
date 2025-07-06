@@ -48,6 +48,30 @@ devtools:
 run:
 	@. .venv/bin/activate && python main.py
 
+# 💻 Deploy to Azure
+deploy-azure:
+	@echo "🚀 Deploying Bicep template to Azure..."
+	az deployment group create --resource-group $$RESOURCE_GROUP --template-file infra/main.bicep --parameters @infra/parameters.json
+
+# ☁️ Deploy to AWS (placeholder for future Terraform support)
+deploy-aws:
+	@echo "🚧 AWS deployment not yet implemented. Placeholder for Terraform apply."
+	@exit 1
+
+# 🧼 Reset runtime-generated files
+reset:
+	@echo "🧹 Cleaning runtime-generated directories..."
+	rm -rf logs/* .checkpoints/*
+	@echo "✅ Cleaned logs and checkpoints."
+
+# 📁 Clone the template into a new use case
+template-clone:
+	@echo "📦 Cloning blueprint into new use case: $(NAME)"
+	@cp -r . ../$(NAME)
+	@echo "✅ New project created at ../$(NAME)"
+
+
+
 # 🧪 Run tests
 test:
 	@. .venv/bin/activate && python -m pytest tests/ -v
