@@ -107,9 +107,18 @@ RiskScorerAgent → flags critical points
 
 
 
+5. ☁️ Cloud Provider Selector (Q&A)
+
+**Q: What platforms are supported?**  
+See `cloud_selector.md` for a detailed comparison of Azure, AWS, GCP, and IBM Cloud.
+
+**Q: What platform is selected for this project?**  
+**A: Azure**, due to its strong enterprise alignment, secure integration with GenAI services, and modular deployment capabilities using Bicep, Container Apps, and Azure Key Vault.
+
+
 ---
 
-5. 🔒 Specify Constraints
+6. 🔒 Specify Constraints
 
 Budget (tokens, infra, storage)?
 
@@ -228,6 +237,11 @@ Compiles outputs from all agents into a coherent summary
 Formats for dashboard, report, or chat response
 
 Can adjust tone for audience (executive, ops, tech)
+
+
+## ☁️ Cloud Provider Selector (Q&A)
+
+> Azure is the proper cloud environment due to its strong enterprise alignment, secure integration with GenAI services, and modular deployment capabilities using Bicep, Container Apps, and Azure Key Vault.
 
 
 ## 🔒 Constraints & Guardrails
